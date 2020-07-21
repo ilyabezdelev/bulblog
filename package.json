@@ -1,0 +1,25 @@
+{
+  "name": "bulblog-hugo-theme",
+  "version": "1.0.0",
+  "description": "A simple blog theme for Hugo based on the Bulma framework.",
+  "main": "sass/bulblog.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyabezdelev/bulblog-hugo-theme.git"
+  },
+  "author": "Ilya Bezdelev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ilyabezdelev/bulblog-hugo-theme/issues"
+  },
+  "homepage": "https://github.com/ilyabezdelev/bulblog-hugo-theme#readme",
+  "devDependencies": {
+    "bulma": "^0.9.0",
+    "node-sass": "^4.14.1"
+  },
+  "scripts": {
+    "css-build": "node-sass --omit-source-map-url sass/bulblog.scss css/bulblog.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
+  }
+}
