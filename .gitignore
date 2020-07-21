@@ -105,3 +105,7 @@ dist
 
 # Test files
 test.html
+
+# MacOS stuff
+.DS_Store
+*/.DS_Store
