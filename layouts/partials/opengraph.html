@@ -1,0 +1,44 @@
+<meta name="title" content="{{ .Title }}" />
+<meta name="description" content="{{ .Summary }}" />
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:type" content="website" />
+{{ if (isset .Params "socialdescription") }}
+<meta property="og:description" content="{{ .Params.socialDescription }}" />
+{{ else }}
+<meta property="og:description" content="{{ .Summary }}" />
+{{ end }}
+
+{{ $images := .Resources }}
+{{ $shareImagePermalink := ""}}
+
+{{ if (isset .Params "shareimage") }}
+  {{ $shareImage := .Params.shareImage }}
+  {{ $shareImageResource := $images.GetMatch $shareImage }}
+  {{ $shareImagePermalink = $shareImageResource.Permalink }}
+  <meta property="og:image" content="{{ $shareImagePermalink }}" />
+  <meta property="twitter:image" content="{{ $shareImagePermalink }}" />
+
+{{ else if (isset .Site.Params.theme "logo" )}}
+  {{ $shareImagePermalink = .Site.Params.theme.logo }}
+  <meta property="og:image" content="{{ $shareImagePermalink }}" />
+  <meta property="twitter:image" content="{{ $shareImagePermalink }}" />
+{{ end }}
+
+
+
+<meta property="twitter:card" content="summary" />
+{{ $twitter_username := "" }}
+{{ range .Site.Params.social }}
+{{ if eq .platform "twitter" }}
+{{ $twitter_username = .username }}
+<meta property="twitter:creator" content="{{ .username }}" />
+{{ end }}
+{{ end }}
+
+<meta property="twitter:title" content="{{ .Title }}" />
+{{ if (isset .Params "social_description") }}
+<meta property="twitter:description" content="{{ .Params.social_description }}" />
+{{ else }}
+<meta property="twitter:description" content="{{ .Params.title_lead }}" />
+{{ end }}

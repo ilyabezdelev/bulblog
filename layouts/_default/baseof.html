@@ -1,11 +1,55 @@
 <!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
+<html xmlns="http://www.w3.org/1999/xhtml"{{with .Site.LanguageCode}} xml:lang="{{.}}" lang="{{.}}"{{end}} prefix="og: http://ogp.me/ns#">
+    <head>
+        {{- partial "head.html" . -}}
+    </head>
     <body>
-        {{- partial "header.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
-        </div>
+        
+        {{ partial "header.html" . }}
+
+        {{ if (eq .IsHome true) }}
+        {{ partial "home_hero.html" . }}
+        {{ end }}
+
+        <section class="section">
+            <div class="container">
+                {{- block "main" . }}{{- end }}
+            </div>
+        </section>
+
         {{- partial "footer.html" . -}}
+        
+        {{ if not .Site.BuildDrafts }}
+            {{ template "_internal/google_analytics.html" . }}
+        {{ end }}
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+        
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+        
+          // Add a click event on each of them
+          $navbarBurgers.forEach( el => {
+            el.addEventListener('click', () => {
+        
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+        
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+        
+            });
+          });
+        }
+        
+        });
+        </script>
+
+
     </body>
 </html>

@@ -1,0 +1,15 @@
+{{ define "main" -}}
+
+{{ if (eq .Kind "term" )}}
+<h1 class="title tag is-large">#{{ .Title }}</h1>
+{{ else }}
+<h1 class="title">{{ .Title }}</h1>
+{{ end }}
+
+{{ $paginator := .Paginate .Data.Pages }}
+{{ range $paginator.Pages }}
+    {{ partial "listpost.html" . }}
+{{ end }}
+
+{{ partial "pagination.html" $paginator }}
+{{- end }}

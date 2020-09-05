@@ -1,0 +1,17 @@
+{{ define "main" -}}
+
+<article class="content is-medium">
+      <h1 class="title">{{ .Title }}</h1>
+      {{ if (ne .Type "page") }}
+        <p class="content is-small has-text-grey-light">{{ partial "post_datetime.html" . }} &middot; {{ partial "post_readingtime.html" . }}</p>
+        {{ end }}
+
+        {{ .Content }}
+
+        <div class="content is-small">
+            {{ partial "post_taglist.html" .Params.tags }}
+          </div>      
+</article>
+  {{/* partial "author.html" . TODO */}}
+
+{{- end }}

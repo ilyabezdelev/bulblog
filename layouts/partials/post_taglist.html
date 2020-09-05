@@ -1,0 +1,3 @@
+{{ range . }}
+    <a href="{{ "tags" | relURL }}/{{ . | urlize }}" class="tag is-light"># {{ . }}</a>
+{{ end }}

@@ -1,0 +1,19 @@
+<section class="hero is-medium is-primary is-bold">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          {{ .Site.Title }}
+        </h1>
+        {{ if and (isset .Site.Params.theme "sitesubtitle") (ne .Site.Params.theme.siteSubtitle "")}}
+        <h2 class="subtitle" id="HomeTypewriter">
+          {{ .Site.Params.theme.siteSubtitle }}
+        </h2>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{ if and (isset .Site.Params.theme "typewriterenabled") (.Site.Params.theme.typewriterEnabled) }}
+      <script src="/js/typewriter.js"></script>
+      <script src='js/typewriter_blog_info.js'> </script>
+  {{ end }}

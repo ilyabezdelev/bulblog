@@ -1,0 +1,26 @@
+<!-- 
+    Usage:
+    partial "social_icons.html" (dict "context" . "size" "medium")
+-->
+
+
+{{ if (isset .context.Site.Params "social") }}
+
+  {{ $size := "medium" }}
+  {{ if (isset . "size") }}
+    {{ $size := .size }}
+  {{ end }}
+
+  {{- range .context.Site.Params.social -}}
+    {{ $platform := .platform }}
+    {{ $username := .username }}
+    {{- with .platform -}}
+      {{ $external_profile_prefix_map := index $.context.Site.Data.theme.external_profile_prefix $platform }}
+      {{ with $external_profile_prefix_map }}
+        <a class="icon is-{{ $size }} has-text-grey-dark theme-social-icon" aria-label="{{ $platform }}" href="{{ $external_profile_prefix_map.url}}{{ $username }}" rel="noopener">
+          <i class="{{ $external_profile_prefix_map.icon }}"></i>
+        </a>
+      {{ end }}
+    {{- end -}}
+  {{- end -}}
+{{ end }}

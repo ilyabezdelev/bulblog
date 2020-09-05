@@ -1,0 +1,13 @@
+<footer class="footer pb-6">
+    <div class="container">
+    <div class="content has-text-centered is-large">
+    
+<p>{{ partial "social_icons.html" (dict "context" . "size" "large") }}</p>
+    </div>
+    <div class="content has-text-centered is-small">
+        {{ if (isset .Site.Params.theme "copyright") }}
+      <p><i class="far fa-copyright"></i> {{ .Site.Params.theme.copyright }} </p>
+      {{ end }}
+    </div>
+</div>
+  </footer>

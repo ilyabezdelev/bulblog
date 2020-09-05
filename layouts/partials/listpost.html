@@ -1,0 +1,37 @@
+<div class="card is-shadowless theme-card">
+<div class="card-content pl-0 pr-0">
+    <div class="media theme-post-list-header">
+      <div class="media-left">
+        {{ $icon := "fas fa-file-alt" }}
+        {{ if ( isset .Params "posticon")}}
+        {{ $icon = .Params.postIcon }}
+        {{ else if ( isset .Site.Params.theme "defaultposticon") }}
+        {{ $icon = .Site.Params.theme.defaultpostIcon }}
+        {{ end }}
+
+        {{ $color := ""}}
+        {{ if ( isset .Params "posticoncolor") }}
+        {{ $color = printf "color: %s" .Params.postIconColor }}
+        {{ end }}
+      <a href="{{ .RelPermalink }}" 
+      {{ if (ne $color "" ) }}
+      style="{{ $color }}"
+      {{ end }}
+      ><span class="icon is-large">
+        <i class="{{ $icon }} fa-3x"></i>
+        </span>
+      </a>
+      </div>
+      <div class="media-content">
+        <p class="title is-4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+        <p class="subtitle is-6"> {{ partial "post_taglist.html" .Params.tags }}</p>
+      </div>
+    </div>
+
+    <div class="content">
+      {{ .Summary }}
+      <br>
+      <span class="content is-small has-text-grey-light">{{ partial "post_datetime.html" .}} &middot; {{ partial "post_readingtime.html" . }}</span>
+    </div>
+  </div>
+</div>

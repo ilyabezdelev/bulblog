@@ -1,0 +1,25 @@
+
+
+[external_profile_prefix.twitter]
+    url = "https://twitter.com/"
+    icon = "fab fa-twitter"
+
+[external_profile_prefix.linkedin]
+    url = "https://linkedin.com/in/"
+    icon = "fab fa-linkedin-in"
+
+[external_profile_prefix.email]
+    url = "mailto:"
+    icon = "fas fa-envelope"
+
+[external_profile_prefix.github]
+    url = "https://github.com/"
+    icon = "fab fa-github"
+
+[external_profile_prefix.telegram]
+    url = "https://t.me/"
+    icon = "fab fa-telegram-plane"
+
+[external_profile_prefix.instagram]
+    url = "https://instagram.com/"
+    icon = "fab fa-instagram"

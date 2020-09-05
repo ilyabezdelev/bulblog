@@ -1,37 +1,96 @@
-@charset "utf-8";
+@charset "utf-8"; 
+
+@import "../node_modules/bulma/sass/utilities/_all.sass";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+//@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
 // Set your brand colors
 $purple: #8A4D76;
 $pink: #FA7C91;
 $brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
+$branded-green: #00a88f;
 
 // Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
+//$family-sans-serif: "Nunito", sans-serif;
+//$grey-dark: $brown;
+//$grey-light: $beige-light;
+//$primary: $purple;
+//$link: $pink;
+
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+$desktop-enabled: false;
+$tablet-enabled: false;
+//$mobile-enabled: false;
+//$scheme-main: $white;
 
 // Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
+$body-background-color: $white;
+$text: $grey-dark;
 $control-border-width: 2px;
-$input-border-color: transparent;
+$input-border-color: transparent; 
 $input-shadow: none;
+$footer-background-color: $body-background-color;
+
+//$link: $branded-green;
+//$link: $turquoise;
+
+$navbar-height: 3rem;
+
+.navbar-item img {
+    max-height: 3rem !important;
+}
+
+.navbar-burger {
+    height: auto !important;
+}
+
+//.has-bg-img { background: url('/img/hero-background.jpg'); background-size:cover; }
 
 // Import only what you need from Bulma
-@import "../node_modules/bulma/sass/utilities/_all.sass";
+
+#logo.navbar-item {
+    /*background: url('/img/logo.png') no-repeat center center;
+    background-size: cover;
+    height: 48px;
+    width: 157px;*/
+  }
+
+.image.is-fullwidth {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.image.post-image img {
+    width: auto !important;
+}
+
+.theme-post-list-header a {
+    color: $text; 
+}
+
+.theme-post-list-header a:hover {
+    color: $black;
+}
+
+.theme-pagination a {
+    color: $grey-light !important;
+}
+
+.theme-pagination a:hover {
+    color: $grey-dark !important;
+}
+
+a.theme-social-icon:hover {
+    color: $black !important;
+}
+
 @import "../node_modules/bulma/sass/base/_all.sass";
-@import "../node_modules/bulma/sass/elements/button.sass";
-@import "../node_modules/bulma/sass/elements/container.sass";
-@import "../node_modules/bulma/sass/elements/title.sass";
+@import "../node_modules/bulma/sass/components/_all.sass";
+@import "../node_modules/bulma/sass/elements/_all.sass";
 @import "../node_modules/bulma/sass/form/_all.sass";
-@import "../node_modules/bulma/sass/components/navbar.sass";
-@import "../node_modules/bulma/sass/layout/hero.sass";
-@import "../node_modules/bulma/sass/layout/section.sass";
+@import "../node_modules/bulma/sass/grid/_all.sass";
+@import "../node_modules/bulma/sass/helpers/_all.sass";
+@import "../node_modules/bulma/sass/layout/_all.sass";
+
