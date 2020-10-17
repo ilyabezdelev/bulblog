@@ -19,13 +19,11 @@
   <meta property="og:image" content="{{ $shareImagePermalink }}" />
   <meta property="twitter:image" content="{{ $shareImagePermalink }}" />
 
-{{ else if (isset .Site.Params.theme "logo" )}}
-  {{ $shareImagePermalink = .Site.Params.theme.logo }}
+{{ else if (isset .Site.Params.theme "shareimage" )}}
+  {{ $shareImagePermalink = .Site.Params.theme.shareImage }}
   <meta property="og:image" content="{{ $shareImagePermalink }}" />
   <meta property="twitter:image" content="{{ $shareImagePermalink }}" />
 {{ end }}
-
-
 
 <meta property="twitter:card" content="summary" />
 {{ $twitter_username := "" }}
