@@ -1,4 +1,4 @@
-<article class="content is-medium">
+<article class="content is-medium mb-6">
       <h2 class="title is-size-4 mb-2 theme-post-list-header"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
       {{ if (ne .Type "page") }}
         <p class="content is-small has-text-grey-light">{{ partial "post_datetime.html" . }} &middot; {{ partial "post_readingtime.html" . }} &middot; {{ partial "post_taglist.html" .Params.tags }}</p>
