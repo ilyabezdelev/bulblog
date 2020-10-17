@@ -1,7 +1,7 @@
 {{ define "main" -}}
 
 <article class="content is-medium">
-      <h1 class="title">{{ .Title }}</h1>
+      <h1 class="title mb-2">{{ .Title }}</h1>
       {{ if (ne .Type "page") }}
         <p class="content is-small has-text-grey-light">{{ partial "post_datetime.html" . }} &middot; {{ partial "post_readingtime.html" . }}</p>
         {{ end }}
