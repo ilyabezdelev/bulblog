@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"{{with .Site.LanguageCode}} xml:lang="{{.}}" lang="{{.}}"{{end}} prefix="og: http://ogp.me/ns#">
     <head>
+      {{ if not .Site.BuildDrafts }}
+      {{ partial "googletagmanager-head.html" . }}
+      {{ end }}
+
         {{- partial "head.html" . -}}
     </head>
     <body>
-        
+      {{ if not .Site.BuildDrafts }}
+      {{ partial "googletagmanager-body.html" . }}
+      {{ end }}
+      
         {{ partial "header.html" . }}
 
         {{ if (eq .IsHome true) }}
@@ -19,11 +26,6 @@
 
         {{- partial "footer.html" . -}}
         
-        {{ if not .Site.BuildDrafts }}
-            {{/* template "_internal/google_analytics.html" . */}}
-            {{ partial "googleanalytics.html" . }}
-        {{ end }}
-
         <script>
             document.addEventListener('DOMContentLoaded', () => {
         
