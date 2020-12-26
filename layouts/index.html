@@ -1,8 +1,18 @@
 
 {{ define "main" }}
 <main aria-role="main">
-    {{ range first 20 (where .Site.RegularPages "Type" "!=" "page") }}
+<!--    {{ range first 20 (where .Site.RegularPages "Type" "!=" "page") }}
         {{ partial "listpost.html" . }}
     {{ end }}
+-->
+
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "!=" "page") }}
+    {{ range $paginator.Pages }}
+        {{ partial "listpost.html" . }}
+    {{ end }}
+    
+    {{ partial "pagination.html" $paginator }}
+
+
 </main>
 {{ end }}
