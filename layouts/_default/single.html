@@ -12,6 +12,11 @@
             {{ partial "post_taglist.html" .Params.tags }}
           </div>      
 </article>
+
+  {{ if isset .Params "instagram" }}
+  {{ partial "instagram.html" .Params.instagram }}
+  {{ end }}
+
   {{/* partial "author.html" . TODO */}}
 
 {{- end }}
