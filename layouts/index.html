@@ -6,7 +6,7 @@
     {{ end }}
 -->
 
-    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "!=" "page") }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "not in" (slice "page" "microblog")) }}
     {{ range $paginator.Pages }}
         {{ partial "listpost.html" . }}
     {{ end }}
